@@ -1,4 +1,4 @@
-package ru.fursa.spacex.features
+package ru.fursa.spacex.features.upcoming
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,5 +11,5 @@ import androidx.compose.ui.graphics.Color
 fun UpcomingScreen(
     modifier: Modifier = Modifier,
 ) {
-    Box(modifier = modifier.fillMaxSize().background(Color.Red))
+    Box(modifier = modifier.fillMaxSize().background(Color.White))
 }
