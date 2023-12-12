@@ -1,4 +1,4 @@
-package ru.fursa.spacex.features.past
+package ru.fursa.past_screeen.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,8 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import ru.fursa.spacex.data.LaunchRepository
-import java.lang.Exception
+import ru.fursa.past_screeen.domain.LaunchRepository
 import javax.inject.Inject
 
 @HiltViewModel

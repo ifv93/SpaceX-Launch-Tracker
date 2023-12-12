@@ -1,4 +1,4 @@
-package ru.fursa.spacex.features.past
+package ru.fursa.past_screeen.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
