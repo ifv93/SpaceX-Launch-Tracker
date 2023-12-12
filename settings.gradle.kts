@@ -15,5 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "SpaceX"
 include(":app")
-include(":core")
-include(":past-launches")
