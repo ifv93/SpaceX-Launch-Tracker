@@ -83,6 +83,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.49")
     kapt("com.google.dagger:hilt-compiler:2.49")
 
-    implementation(project(":past_launches"))
+    implementation(project(":feature:past_launches"))
 
 }

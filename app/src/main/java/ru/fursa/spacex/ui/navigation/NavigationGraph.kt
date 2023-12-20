@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import ru.fursa.past_screeen.presentation.PastLaunchesViewModel
-import ru.fursa.past_screeen.presentation.PastScreen
+import ru.fursa.past_screeen.presentation.screen.PastScreen
 import ru.fursa.spacex.features.upcoming.UpcomingScreen
 
 @Composable
