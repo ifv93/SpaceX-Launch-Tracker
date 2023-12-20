@@ -6,4 +6,7 @@ import ru.fursa.api.response.LaunchResponse
 interface SpaceXApiService {
     @GET("launches/past")
     suspend fun getPastLaunches(): List<LaunchResponse>
+    @GET("launches/upcoming")
+    suspend fun getUpcomingLaunches(): List<LaunchResponse>
+
 }

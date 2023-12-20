@@ -84,5 +84,6 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:2.49")
 
     implementation(project(":feature:past_launches"))
+    implementation(project(":feature:upcoming_launches"))
 
 }
