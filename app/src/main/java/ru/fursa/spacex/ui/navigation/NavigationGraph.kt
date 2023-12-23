@@ -8,13 +8,20 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import ru.fursa.past_screeen.presentation.PastLaunchesViewModel
 import ru.fursa.past_screeen.presentation.screen.PastScreen
-import ru.fursa.spacex.features.upcoming.UpcomingScreen
+import ru.fursa.upcoming_launches.UpcomingViewModel
+import ru.fursa.upcoming_launches.presentation.screen.UpcomingScreen
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {
     NavHost(navController, startDestination = BottomNavItem.Upcoming.route) {
         composable(route = "upcoming") {
-            UpcomingScreen()
+            val viewModel = hiltViewModel<UpcomingViewModel>()
+            val viewState = viewModel.viewState.collectAsState()
+
+            UpcomingScreen(
+                viewState = viewState.value,
+                onLoad = { viewModel.loadData() }
+            )
         }
         composable(route = "past") {
             val viewModel = hiltViewModel<PastLaunchesViewModel>()
