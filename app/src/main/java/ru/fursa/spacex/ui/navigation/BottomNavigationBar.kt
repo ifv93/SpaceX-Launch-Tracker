@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import ru.fursa.common.Routes
 import ru.fursa.spacex.R
 
 sealed class BottomNavItem(
@@ -23,14 +24,14 @@ sealed class BottomNavItem(
 ) {
     object Upcoming :
         BottomNavItem(
-            route = "upcoming",
+            route = Routes.UpcomingLaunchesScreen.routeName,
             icon = R.drawable.ic_done,
             selectedIcon = R.drawable.ic_done_selected,
             label = "Upcoming"
         )
 
     object Past : BottomNavItem(
-        route = "past",
+        route = Routes.PastLaunchesScreen.routeName,
         icon = R.drawable.ic_next,
         selectedIcon = R.drawable.ic_next_selected,
         label = "past"
