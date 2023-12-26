@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Refresh
@@ -24,16 +25,16 @@ sealed class BottomNavItem(
     object Upcoming :
         BottomNavItem(
             route = "upcoming",
-            icon = R.drawable.ic_done,
-            selectedIcon = R.drawable.ic_done_selected,
+            icon = R.drawable.ic_next,
+            selectedIcon = R.drawable.ic_next_selected,
             label = "Upcoming"
         )
 
     object Past : BottomNavItem(
         route = "past",
-        icon = R.drawable.ic_next,
-        selectedIcon = R.drawable.ic_next_selected,
-        label = "past"
+        icon = R.drawable.ic_done,
+        selectedIcon = R.drawable.ic_done_selected,
+        label = "Past"
     )
 }
 
@@ -51,6 +52,7 @@ fun BottomNavigationBar(navController: NavController) {
         items.forEach { item ->
             BottomNavigationItem(
                 selected = currentRoute == item.route,
+                label = { Text(text = item.label)},
                 onClick = {
                     navController.navigate(item.route)
                 },
