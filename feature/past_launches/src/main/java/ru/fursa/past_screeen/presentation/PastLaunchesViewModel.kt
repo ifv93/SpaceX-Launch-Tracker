@@ -27,7 +27,10 @@ class PastLaunchesViewModel @Inject constructor(
                     .map {
                         PastLaunchModel(
                             flightNumber = it.flightNumber,
-                            missionName = it.missionName
+                            missionName = it.missionName,
+                            logoUrl = it.logoUrl.orEmpty(),
+                            launchSite = it.launchSite,
+                            isRocketFailed = it.isRocketFailed
                         )
                     }
                 _viewState.update { it.copy(loading = false, data = data) }

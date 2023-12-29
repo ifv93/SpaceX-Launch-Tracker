@@ -15,7 +15,10 @@ class UpcomingDataRepository @Inject constructor(
         return memoryCache[LAUNCHES_CACHE_KEY] ?: apiService.getUpcomingLaunches().map {
             LaunchModel(
                 flightNumber = it.flightNumber,
-                missionName = it.missionName
+                missionName = it.missionName,
+                launchDate = "",
+                launchSite = (it.launchSite?.siteNameLong ?: it.launchSite?.siteNameShort).orEmpty(),
+                logoUrl = it.links.missionPatchSmall
             )
         }.also {
             memoryCache.set(key = LAUNCHES_CACHE_KEY, value = it)

@@ -27,7 +27,10 @@ class UpcomingViewModel @Inject constructor(
                 val data = repository.getUpcomingLaunches().map {
                     UpcomingLaunchModel(
                         flightNumber = it.flightNumber,
-                        missionName = it.missionName
+                        missionName = it.missionName,
+                        logoUrl = it.logoUrl.orEmpty(),
+                        launchSite = it.launchSite,
+                        missionDate = ""
                     )
                 }
                 _viewState.update { it.copy(loading = false, data = data) }

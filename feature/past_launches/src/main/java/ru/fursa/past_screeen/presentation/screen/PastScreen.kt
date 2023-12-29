@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import ru.fursa.launch_card.LaunchCard
 import ru.fursa.past_screeen.presentation.PastScreenViewState
 
 @Composable
@@ -48,14 +49,15 @@ fun PastScreen(
             else -> {
                 LazyColumn(contentPadding = PaddingValues(all = 6.dp), content = {
                     items(viewState.data) {
-                        Column(
-                            modifier = modifier.fillMaxWidth().padding(all = 6.dp),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.Start
-                        ) {
-                            Text(text = "#${it.flightNumber}")
-                            Text(text = it.missionName.orEmpty(), style = TextStyle(fontWeight = FontWeight.Medium))
-                        }
+                        LaunchCard(
+                            missionName = it.missionName,
+                            flightNumber = it.flightNumber,
+                            missionLogoUrl = it.logoUrl,
+                            missionDate = "",
+                            launchSite = it.launchSite,
+                            isAlreadyCompleted = true,
+                            isRocketFailed = it.isRocketFailed,
+                        )
                     }
                 })
             }
