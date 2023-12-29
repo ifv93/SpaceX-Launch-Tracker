@@ -15,7 +15,11 @@ class PastLaunchDataRepository @Inject constructor(
         return memoryCache[LAUNCHES_CACHE_KEY] ?: apiService.getPastLaunches().map {
             LaunchModel(
                 flightNumber = it.flightNumber,
-                missionName = it.missionName
+                missionName = it.missionName,
+                launchSite = (it.launchSite?.siteNameLong ?: it.launchSite?.siteNameShort).orEmpty(),
+                logoUrl = it.links.missionPatchSmall.orEmpty(),
+                launchDate = "10 october 2006",
+                isRocketFailed = it.isRocketFailed
             )
         }.also {
             memoryCache.set(key = LAUNCHES_CACHE_KEY, value = it)

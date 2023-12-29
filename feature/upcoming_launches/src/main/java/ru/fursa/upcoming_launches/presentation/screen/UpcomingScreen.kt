@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import ru.fursa.launch_card.LaunchCard
 import ru.fursa.upcoming_launches.presentation.UpcomingScreenViewState
 
 @Composable
@@ -46,18 +47,20 @@ fun UpcomingScreen(
             }
 
             else -> {
-                LazyColumn(contentPadding = PaddingValues(all = 6.dp), content = {
-                    items(viewState.data) {
-                        Column(
-                            modifier = modifier.fillMaxWidth().padding(all = 6.dp),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.Start
-                        ) {
-                            Text(text = "#${it.flightNumber}")
-                            Text(text = it.missionName.orEmpty(), style = TextStyle(fontWeight = FontWeight.Medium))
+                LazyColumn(
+                    modifier = modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(all = 6.dp),
+                    content = {
+                        items(viewState.data) {
+                            LaunchCard(
+                                missionName = it.missionName,
+                                flightNumber = it.flightNumber,
+                                missionLogoUrl = it.logoUrl,
+                                missionDate = it.missionDate,
+                                launchSite = it.launchSite
+                            )
                         }
-                    }
-                })
+                    })
             }
         }
     }
